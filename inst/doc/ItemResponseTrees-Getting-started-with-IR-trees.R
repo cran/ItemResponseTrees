@@ -6,7 +6,6 @@ knitr::opts_chunk$set(
 options(tibble.print_min = 10, tibble.print_max = 20, pillar.min_title_chars = 16)
 
 ## ----data, message = FALSE----------------------------------------------------
-# install.packages("ItemResponseTrees")
 library("ItemResponseTrees")
 
 data("jackson")
@@ -17,19 +16,7 @@ df1
 
 ## ---- out.width="80%", echo = FALSE, out.extra='style="border:0px;display: block;  margin-left: auto; margin-right: auto;"'----
 
-if (!isTRUE(all.equal(tools::md5sum("tools/ecn-model.png"),
-                      tools::md5sum("../tools/ecn-model.png"), check.attributes = FALSE))) {
-    invisible(file.copy("../tools/ecn-model.png", "tools/ecn-model.png",
-                        overwrite = TRUE))
-}
-
-knitr::include_graphics("tools/ecn-model.png")
-
-## ----template, eval = FALSE---------------------------------------------------
-#  # Use irtree_create_template() to create a model-string template.
-#  # This may also come handy if you prefer to provide the mapping matrix
-#  #   (i.e., pseudoitems) rather than the model equations
-#  irtree_create_template(df1, mapping_matrix = NULL)
+knitr::include_graphics("../tools/ecn-model.png")
 
 ## ----model-tree---------------------------------------------------------------
 m1 <- "
@@ -90,5 +77,5 @@ tail(tidy(fit1, par_type = "difficulty"), 9)
 ## ----augment, cache = TRUE----------------------------------------------------
 augment(fit1)
 
-cor(augment(fit1)$.fittedF1, augment(fit2)$.fittedF1)
+cor(augment(fit1)$.fitted.t, augment(fit2)$.fitted.t)
 

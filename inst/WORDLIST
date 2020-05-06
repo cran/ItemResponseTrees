@@ -19,6 +19,7 @@ likert
 loadings
 LV
 mirt
+modeltests
 Mplus
 MplusAutomation
 mplusObject
@@ -31,6 +32,7 @@ pseudoitem
 pseudoitems
 Rasch
 RData
+README
 Recode
 recoded
 tibble

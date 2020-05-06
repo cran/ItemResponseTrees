@@ -119,7 +119,7 @@ res3 <- fit(data = Science,
                 run = run))
 
 test_that("Provide starting values",{
-    skip_if(TRUE)
+    skip("Starting values not yet implemented")
 
     flag1 <- TRUE
     while (flag1) {
@@ -192,12 +192,12 @@ test_that("Methods work for output of irtree_fit_mplus()", {
 
 # From vignette at https://broom.tidyverse.org/articles/adding-tidiers.html
 
-skip_if_not_installed("modeltests")
-
-data(column_glossary, package = "modeltests")
-data(argument_glossary, package = "modeltests")
-
 test_that("irtree_fit tidier arguments", {
+
+    skip_if_not_installed("modeltests")
+
+    # data(column_glossary, package = "modeltests")
+    data(argument_glossary, package = "modeltests")
 
     modeltests::check_arguments(tidy.irtree_fit)
     modeltests::check_arguments(glance.irtree_fit)
@@ -205,6 +205,10 @@ test_that("irtree_fit tidier arguments", {
 })
 
 test_that("tidy.irtree_fit()", {
+
+    skip_if_not_installed("modeltests")
+
+    data(column_glossary, package = "modeltests")
 
     td1 <- tidy(res1)
     td2 <- tidy(res2)
@@ -246,6 +250,10 @@ test_that("tidy.irtree_fit()", {
 
 test_that("glance.irtree_fit()", {
 
+    skip_if_not_installed("modeltests")
+
+    data(column_glossary, package = "modeltests")
+
     gl1 <- glance(res1)
     gl2 <- glance(res2)
     gl3 <- glance(res3)
@@ -260,6 +268,10 @@ test_that("glance.irtree_fit()", {
 })
 
 test_that("augment.irtree_fit()", {
+
+    skip_if_not_installed("modeltests")
+
+    # data(column_glossary, package = "modeltests")
 
     modeltests::check_augment_function(
         augment.irtree_fit, res1, data = df1, strict = FALSE
@@ -281,10 +293,14 @@ test_that("augment.irtree_fit()", {
     modeltests::check_dims(ag2, nrow(Science), ncol(Science) + model2$S*2)
     modeltests::check_dims(ag3, nrow(Science), ncol(Science) + model2$S*2)
 
-    checkmate::expect_numeric(ag1$.se.fitB, lower = 0, finite = TRUE, all.missing = FALSE)
-    checkmate::expect_numeric(ag1$.se.fitA, lower = 0, finite = TRUE, all.missing = FALSE)
-    checkmate::expect_numeric(ag2$.se.fitA, lower = 0, finite = TRUE, all.missing = FALSE)
-    checkmate::expect_numeric(ag3$.se.fitT, lower = 0, finite = TRUE, all.missing = FALSE)
+    checkmate::expect_numeric(ag1$.fitted.B, finite = TRUE, all.missing = FALSE)
+    checkmate::expect_numeric(ag1$.fitted.A, finite = TRUE, all.missing = FALSE)
+    checkmate::expect_numeric(ag2$.fitted.A, finite = TRUE, all.missing = FALSE)
+    checkmate::expect_numeric(ag3$.fitted.T, finite = TRUE, all.missing = FALSE)
+
+    checkmate::expect_numeric(ag1$.se.fit.B, lower = 0, finite = TRUE, all.missing = FALSE)
+    checkmate::expect_numeric(ag1$.se.fit.A, lower = 0, finite = TRUE, all.missing = FALSE)
+    checkmate::expect_numeric(ag2$.se.fit.A, lower = 0, finite = TRUE, all.missing = FALSE)
+    checkmate::expect_numeric(ag3$.se.fit.T, lower = 0, finite = TRUE, all.missing = FALSE)
 
 })
-

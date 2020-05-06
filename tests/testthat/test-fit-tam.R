@@ -64,7 +64,7 @@ model4 <- irtree_model(m4)
 set.seed(123)
 
 data1 <- irtree_gen_data(
-    object = model1, N = 150,
+    object = model1, N = 200,
     sigma = diag(model1$S),
     itempar = list(beta = matrix(rnorm(model1$J*model1$P), model1$J, model1$P),
                    alpha = matrix(1, model1$J, model1$P)),
@@ -78,7 +78,7 @@ ScienceNew <- Science - 1
 names(ScienceNew) <- sub("Benefit", "Benefitvar", names(ScienceNew))
 
 data3 <- irtree_gen_data(
-    object = model3, N = 150,
+    object = model3, N = 200,
     link = "logit",
     sigma = function() diag(model3$S),
     itempar = function() {
@@ -172,11 +172,11 @@ test_that("Passing arguments to TAM works", {
 
 # From vignette at https://broom.tidyverse.org/articles/adding-tidiers.html
 
-skip_if_not_installed("modeltests")
-
-data(column_glossary, package = "modeltests")
-
 test_that("tidy.irtree_fit()", {
+
+    skip_if_not_installed("modeltests")
+
+    data(column_glossary, package = "modeltests")
 
     td1 <- tidy(res1)
     td2 <- tidy(res2)
@@ -211,6 +211,10 @@ test_that("tidy.irtree_fit()", {
 
 test_that("glance.irtree_fit()", {
 
+    skip_if_not_installed("modeltests")
+
+    data(column_glossary, package = "modeltests")
+
     gl1 <- glance(res1)
     gl2 <- glance(res2)
     gl3 <- glance(res3)
@@ -226,6 +230,10 @@ test_that("glance.irtree_fit()", {
 })
 
 test_that("implementation of augment.irtree_fit()", {
+
+    skip_if_not_installed("modeltests")
+
+    # data(column_glossary, package = "modeltests")
 
     modeltests::check_augment_function(
         augment, res1, data = data1$data, strict = FALSE
@@ -281,4 +289,3 @@ test_that("implementation of augment.irtree_fit()", {
     checkmate::expect_numeric(ag3$.se.fit.Dim2, lower = 0, finite = TRUE, any.missing = FALSE)
 
 })
-

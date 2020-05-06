@@ -1,4 +1,12 @@
-# ItemResponseTrees 0.2.4
+# ItemResponseTrees 0.2.5
+
+* Fixed tests and vignette that failed due to changes in package mirt version 1.32.1.
+* `augment()` now consistently prefixes new columns with `.fitted.` or `.se.fit.`.
+  Furthermore, its argument `se.fit` was renamed to `se_fit` (as recommended by package modeltests).
+* Uncoupled README from the vignette; README is now much shorter.
+* R (>= 3.6.0) is now required in alignment with the dependency mirt.
+
+# ItemResponseTrees 0.2.4 (2020-04-24)
 
 * Condition handling was refactored (e.g., `myTryCatch()` was replaced with `simsalapar::tryCatch.W.E()`).
 * `sym_diff()` was replaced with `sets::set_symdiff()`, and `sort2()` was removed.

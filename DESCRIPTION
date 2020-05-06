@@ -1,6 +1,6 @@
 Package: ItemResponseTrees
 Title: IR-Tree Modeling in 'mirt', 'Mplus', or 'TAM'
-Version: 0.2.4
+Version: 0.2.5
 Authors@R: person("Hansjörg", "Plieninger", email = "mail@hansjoerg.me",
     role = c("aut", "cre"), comment = c(ORCID = "0000-0002-4416-300X"))
 Description: Item response tree (IR-tree) models are a class of item response
@@ -15,22 +15,23 @@ Description: Item response tree (IR-tree) models are a class of item response
 License: MIT + file LICENSE
 URL: https://github.com/hplieninger/ItemResponseTrees
 BugReports: https://github.com/hplieninger/ItemResponseTrees/issues
-Depends: R (>= 3.4)
-Imports: backports, checkmate (>= 1.9), dplyr, generics, glue,
-        magrittr, MASS, Matrix, methods, mirt (>= 1.30), purrr, rlang
-        (>= 0.4.0), sets, stringr, tibble, tidyr (>= 1.0.0), tidyselect
+Depends: R (>= 3.6.0)
+Imports: checkmate (>= 1.9), dplyr, generics, glue, magrittr, MASS,
+        Matrix, methods, mirt (>= 1.30), purrr, rlang (>= 0.4.0), sets,
+        stringr, tibble, tidyr (>= 1.0.0), tidyselect
 Suggests: covr, future, knitr, listenv, lme4, modeltests (>= 0.1.0),
         MplusAutomation (>= 0.7), progress, rmarkdown, roxygen2,
-        simsalapar, sfsmisc, spelling, TAM, testthat (>= 2.1.0)
+        simsalapar, sfsmisc, spelling, TAM (>= 3.5-19), testthat (>=
+        2.1.0)
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.0
 VignetteBuilder: knitr
 Language: en-US
 NeedsCompilation: no
-Packaged: 2020-04-16 14:07:39 UTC; hp
+Packaged: 2020-05-06 19:40:29 UTC; hp
 Author: Hansjörg Plieninger [aut, cre]
     (<https://orcid.org/0000-0002-4416-300X>)
 Maintainer: Hansjörg Plieninger <mail@hansjoerg.me>
 Repository: CRAN
-Date/Publication: 2020-04-24 15:20:02 UTC
+Date/Publication: 2020-05-06 22:00:15 UTC
